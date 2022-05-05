@@ -226,6 +226,26 @@ def main():
 
                 st.success(price)
                 st.stop()
+    else:
+        st.subheader("Dataset upload")
+        uploaded_file = st.file_uploader("Choose a file")
+        if uploaded_file is not None:
+            data = pd.read_excel(uploaded_file)
+            # get overview of data
+            st.write(data.head())
+            st.markdown("<h3></h3>", unsafe_allow_html=True)
+            # preprocess inputs
+            preprocess_df = preprocess(data, "Batch")
+            data = pd.DataFrame(data)
+            if st.button('Predict'):
+                # get Batch prediction
+                prediction = Lgbm.predict(preprocess_df)
+                price = prediction
+                prediction_df = pd.DataFrame(
+                    price, columns=["Predictions"])
+                st.markdown("<h3></h3>", unsafe_allow_html=True)
+                st.subheader('Prediction')
+                st.write(prediction_df)
 
 
 if __name__ == '__main__':
