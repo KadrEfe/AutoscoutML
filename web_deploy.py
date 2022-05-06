@@ -109,9 +109,9 @@ def main():
             fuel_type = st.selectbox('Fuel Type', dataset.fuel_type(
             ), index=dataset.fuel_type().index(variables['fuel_type']))
             combination = st.slider(
-                'Combination L/100km', min_value=1.0, max_value=30.0, value=float(variables['combination(L/100Km)']), step=0.5)
+                'Combination L/100km', min_value=0.0, max_value=30.0, value=float(variables['combination(L/100Km)']), step=0.5)
             co2_emissions = st.number_input(
-                'Co2 Emission', min_value=50, max_value=500, value=int(variables['co2_emissions']))
+                'Co2 Emission', min_value=0, max_value=500, value=int(variables['co2_emissions']))
 
             st.subheader("Color and Upholstery")
             colour = st.selectbox('Colour', dataset.colour(
