@@ -1,1 +1,2 @@
 *.sav filter=lfs diff=lfs merge=lfs -text
+autoscout_data_2000.csv filter=lfs diff=lfs merge=lfs -text
