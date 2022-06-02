@@ -6,11 +6,10 @@ import pandas as pd
 from PIL import Image
 from preprocessing import preprocess
 import dataset
-import os
-cwd = os.getcwd()
+
 # load the model from disk
-filename = cwd+'\LGBMregressor.sav'
-Lgbm = joblib.load(filename)
+
+Lgbm = joblib.load('LGBMregressor.sav')
 
 
 def main():
