@@ -1,15 +1,15 @@
 
 # Import libraries
+import joblib
 import streamlit as st
 import pandas as pd
-import numpy as np
 from PIL import Image
 from preprocessing import preprocess
 import dataset
-
+import os
+cwd = os.getcwd()
 # load the model from disk
-import joblib
-filename = 'LGBMregressor.sav'
+filename = cwd+'\LGBMregressor.sav'
 Lgbm = joblib.load(filename)
 
 
